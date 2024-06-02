@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LayananController;
 
 Route::get('/', function () {
     return view('frontend.pages.index');
 });
-Route::get('/layanan', function () {
-    return view('frontend.pages.layanan');
-});
+
+Route::resource('layanan', LayananController::class);
 
