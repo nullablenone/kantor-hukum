@@ -1,12 +1,12 @@
 @extends('frontend.layouts.layouts')
 
-@section('title', 'layanan')
+@section('title', 'Layanan')
 
 @section('content')
 
-<!-- BEGIN FEATURES SECTION -->
+<!-- BEGIN LAYANAN SECTION -->
 @include('frontend.components.layanan')
-<!-- END FEATURES SECTION -->
+<!-- END LAYANAN SECTION -->
 
 
     

@@ -20,10 +20,10 @@
                 class="ml-0 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Beranda</a>
             <a href="{{ route('layanan.index') }}"
                 class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Layanan</a>
-            <a href="#pricing"
-                class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Pricing</a>
-            <a href="#testimonials"
-                class="font-bold duration-100 transition-color hover:text-indigo-600">Testimonials</a>
+            <a href="{{ route('pengacara.index') }}"
+                class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Pengacara</a>
+            {{-- <a href="#testimonials"
+                class="font-bold duration-100 transition-color hover:text-indigo-600">Testimonials</a> --}}
             <div class="flex flex-col block w-full font-medium border-t border-gray-200 md:hidden">
                 <a href="#_" class="w-full py-2 font-bold text-center text-pink-500">Login</a>
                 <a href="#_"
