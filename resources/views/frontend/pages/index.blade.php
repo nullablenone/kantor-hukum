@@ -1,7 +1,6 @@
 @extends('frontend.layouts.layouts')
 
 
-
 @section('content')
 <!-- BEGIN SLIDER SECTION -->
 @include('frontend.components.slider')
