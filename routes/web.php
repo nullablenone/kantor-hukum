@@ -7,6 +7,7 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PengacaraController;
 use App\Http\Controllers\TentangKamiController;
 
+// ---FRONTEND ROUTE
 // Route Beranda
 Route::get('/', [BerandaController::class, 'index'])->name('beranda.index');
 
@@ -21,4 +22,10 @@ Route::resource('pengacara', PengacaraController::class);
 
 // Route Kontak
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak.index');
+
+
+// ---BACKENDROUTE
+Route::get('/cobaa', function () {   
+    return view('admin.pages.dashboard');
+});
 
