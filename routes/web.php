@@ -13,22 +13,29 @@ use App\Http\Controllers\TentangKamiController;
 Route::get('/', [BerandaController::class, 'index'])->name('beranda.index');
 
 // Route Tentang Kami
-Route::resource('tentang-kami', TentangKamiController::class);
+Route::get('/tentang-kami', [TentangKamiController::class, 'index'])->name('tentang-kami.index');
 
 // Route Layanan
-Route::resource('layanan', LayananController::class);
+Route::get('/layanan', [LayananController::class, 'index'])->name('layanan.index');
 
 // Route Pengacara
-Route::resource('pengacara', PengacaraController::class);
+Route::get('/pengacara', [PengacaraController::class, 'index'])->name('pengacara.index');
+
 
 // Route Kontak
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak.index');
 
 
+
+
 // ---BACKENDROUTE
-//Dashboard
 Route::prefix('admin')->group(function () {
     
+    //Dashboard
     Route::resource('dashboard', DashboardController::class);
+
+    //Layanan
+    Route::get('/layanan', [LayananController::class, 'indexadmin'])->name('layanan.indexadmin');
+    
 });
 

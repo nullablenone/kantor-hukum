@@ -16,7 +16,7 @@ class LayananController extends Controller
 
     public function indexadmin()
     {
-        //
+        return view('admin.pages.layanan');
     }
 
     /**

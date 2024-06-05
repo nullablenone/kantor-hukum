@@ -134,6 +134,7 @@
             </div>
         </div>
     </div>
+    
 </body>
 <!-- plugin for charts  -->
 <script src="{{ asset('./assets/js/plugins/chartjs.min.js') }}" async></script>
