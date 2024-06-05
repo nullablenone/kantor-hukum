@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\BerandaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengacaraController;
 use App\Http\Controllers\TentangKamiController;
 
@@ -25,7 +26,9 @@ Route::get('/kontak', [KontakController::class, 'index'])->name('kontak.index');
 
 
 // ---BACKENDROUTE
-Route::get('/cobaa', function () {   
-    return view('admin.pages.dashboard');
+//Dashboard
+Route::prefix('admin')->group(function () {
+    
+    Route::resource('dashboard', DashboardController::class);
 });
 
