@@ -36,6 +36,7 @@ Route::prefix('admin')->group(function () {
 
     //Layanan
     Route::get('/layanan', [LayananController::class, 'indexadmin'])->name('layanan.indexadmin');
+    Route::get('/layanan/create', [LayananController::class, 'create'])->name('layanan.create');
     
 });
 

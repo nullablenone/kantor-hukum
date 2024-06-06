@@ -3,7 +3,7 @@
       <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
         <div class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
           <h5 class="dark:text-white">Table Layanan</h6>
-            <a class="dark:text-blue-100 font-bold hover:text-blue-500" href="#">Tambah +</a>
+            <a class="dark:text-blue-100 font-bold hover:text-blue-500" href="{{ route('layanan.create') }}">Tambah +</a>
         </div>
         <div class="flex-auto px-0 pt-0 pb-2">
           <div class="p-0 overflow-x-auto ps">

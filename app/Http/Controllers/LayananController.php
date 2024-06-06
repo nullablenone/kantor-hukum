@@ -16,7 +16,7 @@ class LayananController extends Controller
 
     public function indexadmin()
     {
-        return view('admin.pages.layanan');
+        return view('admin.pages.layanan.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class LayananController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.layanan.create');
     }
 
     /**
