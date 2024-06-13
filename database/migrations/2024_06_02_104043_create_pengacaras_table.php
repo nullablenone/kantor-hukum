@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('gelar');
             $table->string('deskripsi');
-            $table->string('foto');
+            $table->string('foto')->nullable()->default('null');
 
             $table->timestamps();
         });

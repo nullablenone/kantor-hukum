@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Layanan;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class LayananController extends Controller
 {
@@ -11,12 +13,17 @@ class LayananController extends Controller
      */
     public function index()
     {
-        return view('frontend.pages.layanan');
+        return view('frontend.pages.layanan',[
+            'layanans' => Layanan::get(),
+        ]);
     }
 
     public function indexadmin()
     {
-        return view('admin.pages.layanan.index');
+        return view('admin.pages.layanan.index',
+    [
+        'layanans' => Layanan::all(),
+    ]);
     }
 
     /**
@@ -32,7 +39,18 @@ class LayananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'judul' => 'required|max:10',
+            'deskripsi' => 'required|max:20',
+        ]);
+
+        $layanan = new Layanan;
+        $layanan->judul = $request->judul;
+        $layanan->deskripsi = $request->deskripsi;
+        $layanan->save();
+
+        return redirect()->route('layanan.indexadmin');
+
     }
 
     /**

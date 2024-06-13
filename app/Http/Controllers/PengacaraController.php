@@ -14,12 +14,17 @@ class PengacaraController extends Controller
         return view('frontend.pages.pengacara');
     }
 
+    public function indexadmin()
+    {
+        return view('admin.pages.pengacara.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('admin.pages.pengacara.create');
     }
 
     /**

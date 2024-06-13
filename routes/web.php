@@ -37,6 +37,12 @@ Route::prefix('admin')->group(function () {
     //Layanan
     Route::get('/layanan', [LayananController::class, 'indexadmin'])->name('layanan.indexadmin');
     Route::get('/layanan/create', [LayananController::class, 'create'])->name('layanan.create');
+    Route::post('/layanan', [LayananController::class, 'store'])->name('layanan.store');
+
+    //Pengacara
+    Route::get('/pengacara', [PengacaraController::class, 'indexadmin'])->name('pengacara.indexadmin');
+    Route::get('/pengacara/create', [PengacaraController::class, 'create'])->name('pengacara.create');
+    Route::post('/pengacara', [PengacaraController::class, 'store'])->name('pengacara.store');
     
 });
 
