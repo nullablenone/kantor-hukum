@@ -44,11 +44,19 @@ class LayananController extends Controller
             'deskripsi' => 'required|max:20',
         ]);
 
+        $foto = null;
+        if ($request->hasFile('foto')){
+            $foto = $request->file('foto')->store('foto');
+        }
+
         $layanan = new Layanan;
         $layanan->judul = $request->judul;
         $layanan->deskripsi = $request->deskripsi;
+        $layanan->foto = $request->foto;
         $layanan->save();
+        
 
+        
         return redirect()->route('layanan.indexadmin');
 
     }
@@ -66,7 +74,11 @@ class LayananController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $layanan = Layanan::find($id);
+        return view('admin.pages.layanan.edit',
+    [
+        'layanan' => $layanan,
+    ]);
     }
 
     /**
@@ -74,7 +86,25 @@ class LayananController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'judul' => 'required|max:10',
+            'deskripsi' => 'required|max:20',
+        ]);
+
+        $foto = null;
+        if ($request->hasFile('foto')){
+            $foto = $request->file('foto')->store('foto');
+        }
+
+        $layanan = Layanan::find($id);
+        $layanan->judul = $request->judul;
+        $layanan->deskripsi = $request->deskripsi;
+        $layanan->save();
+        
+
+        
+        return redirect()->route('layanan.indexadmin');
+
     }
 
     /**
@@ -82,6 +112,8 @@ class LayananController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $layanan = Layanan::find($id);
+        $layanan->delete();
+        return redirect()->route('layanan.indexadmin');
     }
 }

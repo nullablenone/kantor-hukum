@@ -8,7 +8,7 @@
 <!-- SLIDER SECTION END -->
 
 <!-- BEGIN FEATURES SECTION -->
-@include('frontend.components.layanan')
+{{-- @include('frontend.components.layanan') --}}
 <!-- END FEATURES SECTION -->
 
 
