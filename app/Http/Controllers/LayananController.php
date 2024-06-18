@@ -52,7 +52,7 @@ class LayananController extends Controller
         $layanan = new Layanan;
         $layanan->judul = $request->judul;
         $layanan->deskripsi = $request->deskripsi;
-        $layanan->foto = $request->foto;
+        $layanan->foto = $foto;
         $layanan->save();
         
 
