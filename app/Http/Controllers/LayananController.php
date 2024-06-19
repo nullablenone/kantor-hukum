@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Layanan;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class LayananController extends Controller
 {
@@ -42,6 +43,8 @@ class LayananController extends Controller
         $validated = $request->validate([
             'judul' => 'required|max:10',
             'deskripsi' => 'required|max:20',
+            'foto' => 'image',
+
         ]);
 
         $foto = null;
@@ -57,7 +60,7 @@ class LayananController extends Controller
         
 
         
-        return redirect()->route('layanan.indexadmin');
+        return redirect()->route('layanan.indexadmin')->with('sukses', 'Berhasil di Tambah ');
 
     }
 
@@ -89,21 +92,24 @@ class LayananController extends Controller
         $validated = $request->validate([
             'judul' => 'required|max:10',
             'deskripsi' => 'required|max:20',
+            'foto' => 'image',
         ]);
+    $layanan = Layanan::find($id);
+    
+    $foto = $layanan->foto;
 
-        $foto = null;
-        if ($request->hasFile('foto')){
-            $foto = $request->file('foto')->store('foto');
+    if($request->hasFile('foto')){
+        $foto = $request->file('foto')->store('foto', 'public');
+        
+        if($layanan->foto && Storage::disk('public')->exists($layanan->foto)){
+            Storage::disk('public')->delete($layanan->foto);
         }
-
-        $layanan = Layanan::find($id);
-        $layanan->judul = $request->judul;
-        $layanan->deskripsi = $request->deskripsi;
-        $layanan->save();
-        
-
-        
-        return redirect()->route('layanan.indexadmin');
+    }
+    $layanan->judul = $request->judul;
+    $layanan->deskripsi = $request->deskripsi;
+    $layanan->foto = $foto;
+    $layanan->save();
+        return redirect()->route('layanan.indexadmin')->with('sukses', 'Update Berhasil');
 
     }
 
@@ -113,7 +119,10 @@ class LayananController extends Controller
     public function destroy(string $id)
     {
         $layanan = Layanan::find($id);
+        if ($layanan->foto){
+            Storage::delete($layanan->foto);
+        }
         $layanan->delete();
-        return redirect()->route('layanan.indexadmin');
+        return redirect()->route('layanan.indexadmin')->with('hapus', 'Berhasil di Hapus');
     }
 }

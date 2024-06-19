@@ -40,7 +40,9 @@
 
                         <div class="form-group">
                             <label for="">Foto</label>
-                            <img src="{{ asset('storage/' . $layanan->foto) }}" alt="">
+                            <div class="my-2">
+                                <img src="{{ asset('storage/' . $layanan->foto) }}" alt="" width="150px">
+                            </div>
                             <input type="file" class="form-control" name="foto">
                         </div>
 

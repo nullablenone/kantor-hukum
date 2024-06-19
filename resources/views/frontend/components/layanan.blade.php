@@ -19,7 +19,7 @@
                             </g>
                         </svg>
                         <!-- FEATURE Icon 2 -->
-                        <img class="relative w-20 h-20" src="{{ asset('images/ai-ethic.png') }}" alt="">
+                        <img class="relative w-20 h-20" src="{{ asset('storage/' . $layanan->foto) }}" alt="">
                         <h4 class="relative mt-6 text-lg font-bold">{{ $layanan->judul }}</h4>
                         <p class="relative mt-2 text-base text-center text-gray-600">
                             {{ $layanan->deskripsi }} 
