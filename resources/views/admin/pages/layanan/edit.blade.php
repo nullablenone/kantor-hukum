@@ -26,15 +26,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">deskripsi</label>
-                            <input type="text"
-                                class="form-control  @error('deskripsi')
-                        is-invalid
-                    @enderror"
-                                id="" placeholder="" name="deskripsi"
-                                value="{{ old('deskripsi') ?? $layanan->deskripsi }}" autocomplete="off">
+                            <label for="">Deskripsi</label>
+                            <textarea name="deskripsi" id="" cols="30" rows="10"
+                                class="form-control 
+                             @error('deskripsi')
+                            is-invalid
+                        @enderror"></textarea>
                             @error('deskripsi')
-                                <span class="invalid-feedback">{{ $deskripsi }}</span>
+                                <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
 

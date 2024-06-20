@@ -25,20 +25,21 @@
                         </div>
                         <div class="form-group">
                             <label for="">Deskripsi</label>
-                            <input type="text"
-                                class="form-control  @error('deskripsi')
-                        is-invalid
-                    @enderror"
-                                id="" placeholder="" name="deskripsi" value="{{ old('deskripsi') }}" autocomplete="off">
+                            <textarea name="deskripsi" id="" cols="30" rows="10"
+                                class="form-control 
+                             @error('deskripsi')
+                            is-invalid
+                        @enderror"></textarea>
                             @error('deskripsi')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
+
                         <div class="form-group">
                             <label for="">Foto</label>
                             <input type="file" class="form-control" name="foto">
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button class="btn btn-light">Cancel</button>
                     </form>

@@ -41,8 +41,8 @@ class LayananController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'judul' => 'required|max:10',
-            'deskripsi' => 'required|max:20',
+            'judul' => 'required|max:15',
+            'deskripsi' => 'required',
             'foto' => 'image',
 
         ]);
@@ -91,7 +91,7 @@ class LayananController extends Controller
     {
         $validated = $request->validate([
             'judul' => 'required|max:10',
-            'deskripsi' => 'required|max:20',
+            'deskripsi' => 'required|max:50',
             'foto' => 'image',
         ]);
     $layanan = Layanan::find($id);
