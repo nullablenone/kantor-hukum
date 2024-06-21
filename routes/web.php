@@ -42,11 +42,14 @@ Route::prefix('admin')->group(function () {
     Route::put('/layanan/{layanan}', [LayananController::class, 'update'])->name('layanan.update');
     Route::delete('/layanan/{layanan}', [LayananController::class, 'destroy'])->name('layanan.destroy');
     
-
+    
     //Pengacara
-    // Route::get('/pengacara', [PengacaraController::class, 'indexadmin'])->name('pengacara.indexadmin');
-    // Route::get('/pengacara/create', [PengacaraController::class, 'create'])->name('pengacara.create');
-    // Route::post('/pengacara', [PengacaraController::class, 'store'])->name('pengacara.store');
+    Route::get('/pengacara', [PengacaraController::class, 'indexadmin'])->name('pengacara.indexadmin');
+    Route::get('/pengacara/create', [PengacaraController::class, 'create'])->name('pengacara.create');
+    Route::post('/pengacara', [PengacaraController::class, 'store'])->name('pengacara.store');
+    Route::get('/pengacara/{pengacara}/edit', [PengacaraController::class, 'edit'])->name('pengacara.edit');
+    Route::put('/pengacara/{pengacara}', [PengacaraController::class, 'update'])->name('pengacara.update');
+    Route::delete('/pengacara/{pengacara}', [PengacaraController::class, 'destroy'])->name('pengacara.destroy');
     
 });
 

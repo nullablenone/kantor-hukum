@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengacara;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class PengacaraController extends Controller
 {
@@ -11,12 +14,17 @@ class PengacaraController extends Controller
      */
     public function index()
     {
-        return view('frontend.pages.pengacara');
+        return view('frontend.pages.pengacara',[
+            'pengacaras' => Pengacara::get(),
+        ]);
     }
 
     public function indexadmin()
     {
-        return view('admin.pages.pengacara.index');
+        return view('admin.pages.pengacara.index',
+        [
+            'p' => Pengacara::all()
+        ]);
     }
 
     /**
@@ -32,7 +40,26 @@ class PengacaraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required|max:15',
+            'gelar' => 'required|max:15',
+            'deskripsi' => 'required',
+            'foto' => 'image',
+
+        ]);
+        $foto = null;
+        if ($request->hasFile('foto')){
+            $foto = $request->file('foto')->store('foto');
+        }
+
+        $pengacara = new Pengacara;
+        $pengacara->nama = $request->nama;
+        $pengacara->gelar = $request->gelar;
+        $pengacara->deskripsi = $request->deskripsi;
+        $pengacara->foto = $foto;
+        $pengacara->save();
+
+        return redirect()->route('pengacara.indexadmin')->with('sukses', 'Berhasil di Tambah ');
     }
 
     /**
@@ -48,7 +75,11 @@ class PengacaraController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pengacara = Pengacara::find($id);
+        return view('admin.pages.pengacara.edit',
+    [
+        'pengacara' => $pengacara,
+    ]);
     }
 
     /**
@@ -56,7 +87,30 @@ class PengacaraController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required|max:15',
+            'gelar' => 'required|max:15',
+            'deskripsi' => 'required',
+            'foto' => 'image',
+
+        ]);
+    $pengacara = Pengacara::find($id);
+    
+    $foto = $pengacara->foto;
+
+    if($request->hasFile('foto')){
+        $foto = $request->file('foto')->store('foto', 'public');
+        
+        if($pengacara->foto && Storage::disk('public')->exists($pengacara->foto)){
+            Storage::disk('public')->delete($pengacara->foto);
+        }
+    }
+    $pengacara->nama = $request->nama;
+    $pengacara->gelar = $request->gelar;
+    $pengacara->deskripsi = $request->deskripsi;
+    $pengacara->foto = $foto;
+    $pengacara->save();
+        return redirect()->route('pengacara.indexadmin')->with('sukses', 'Update Berhasil');
     }
 
     /**
@@ -64,6 +118,13 @@ class PengacaraController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pengacara = Pengacara::find($id);
+
+        if ($pengacara->foto){
+            Storage::delete($pengacara->foto);
+        }
+
+        $pengacara->delete();
+        return redirect()->route('pengacara.indexadmin')->with('hapus', 'Berhasil di Hapus');
     }
 }

@@ -18,5 +18,21 @@ class PengacaraSeeder extends Seeder
             'gelar'=> 'CEO SomeCompany',
             'deskripsi'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, hic temporibus vero nobis quam quisquam!',
         ]);
+        Pengacara::create([
+            'nama'=> 'Lukman Jamale',
+            'gelar'=> 'CEO Demon',
+            'deskripsi'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, hic temporibus vero nobis quam quisquam!',
+        ]);
+        Pengacara::create([
+            'nama'=> 'Artur Laywin',
+            'gelar'=> 'RealmHeart',
+            'deskripsi'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, hic temporibus vero nobis quam quisquam!',
+        ]);
+        Pengacara::create([
+            'nama'=> 'Thoni Broww',
+            'gelar'=> 'CEO XIXIXI',
+            'deskripsi'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, hic temporibus vero nobis quam quisquam!',
+        ]);
+        
     }
 }

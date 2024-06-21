@@ -90,10 +90,9 @@ class LayananController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'judul' => 'required|max:10',
-            'deskripsi' => 'required|max:50',
-            'foto' => 'image',
-        ]);
+            'judul' => 'required|max:15',
+            'deskripsi' => 'required',
+            'foto' => 'image',]);
     $layanan = Layanan::find($id);
     
     $foto = $layanan->foto;
