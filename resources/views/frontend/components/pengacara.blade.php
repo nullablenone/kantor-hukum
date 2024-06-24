@@ -35,12 +35,12 @@
 
                                     <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">
                                         {{ $pengacara->nama }} <span
-                                            class="mt-1 text-sm leading-5 text-gray-500 truncate">- {{ $pengacara->gelar }}</span></h3>
+                                            class="mt-1 text-sm leading-5 text-gray-500 truncate">-
+                                            {{ $pengacara->gelar }}</span></h3>
                                     <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                                 </div>
                                 <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
-                                    src="{{ asset('storage/' . $pengacara->foto) }}"
-                                    alt="">
+                                    src="{{ asset('storage/' . $pengacara->foto) }}" alt="">
                             </blockquote>
                         @endforeach
                     </div>

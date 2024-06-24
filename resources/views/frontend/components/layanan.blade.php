@@ -5,7 +5,7 @@
             class="max-w-2xl px-5 mt-2 text-3xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl">
             Layanan Terbaik Hukum Online</h3>
         <div class="flex flex-col w-full mt-0 lg:flex-row sm:mt-10 lg:mt-20">
-
+            
             @foreach ($layanans as $layanan)
                 <div class="w-full max-w-md p-4 mx-auto mb-0 sm:mb-16 lg:mb-0 lg:w-1/2">
                     <div class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg">

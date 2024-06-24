@@ -32,8 +32,8 @@ Route::get('/kontak', [KontakController::class, 'index'])->name('kontak.index');
 Route::prefix('admin')->group(function () {
     
     //Dashboard
-    // Route::resource('dashboard', DashboardController::class);
-
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    
     //Layanan
     Route::get('/layanan', [LayananController::class, 'indexadmin'])->name('layanan.indexadmin');
     Route::get('/layanan/create', [LayananController::class, 'create'])->name('layanan.create');
@@ -50,6 +50,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/pengacara/{pengacara}/edit', [PengacaraController::class, 'edit'])->name('pengacara.edit');
     Route::put('/pengacara/{pengacara}', [PengacaraController::class, 'update'])->name('pengacara.update');
     Route::delete('/pengacara/{pengacara}', [PengacaraController::class, 'destroy'])->name('pengacara.destroy');
+    
     
 });
 

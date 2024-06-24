@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SMK AMALIAH 1&2</title>
+    <title>{{ $title ?? 'Dashboard' }}</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('style/vendors/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('style/vendors/ti-icons/css/themify-icons.css') }}">
@@ -28,10 +28,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="{{ url('') }}"><img
-                        src="{{ asset('style/images/logoamaliah.png') }}" class="mr-2" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="{{ url('') }}"><img
-                        src="{{ asset('style/images/miniamaliah.png') }}" alt="logo" /></a>
+                <h3 class="navbar-brand brand-logo mr-5">Nullablenone</h3>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -103,7 +100,7 @@
                     </li>
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                            <img src="{{ asset('style/images/faces/face8.jpg') }}" alt="profile" />
+                            <img src="{{ asset('images/laywin.jpg') }}" alt="profile" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
@@ -322,14 +319,20 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('layanan.indexadmin') }}">
+                        <a class="nav-link" href="{{ route('dashboard.index') }}">
                             <i class="icon-paper menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('layanan.indexadmin') }}">
+                            <i class="icon-columns menu-icon"></i>
                             <span class="menu-title">Layanan</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('pengacara.indexadmin') }}">
-                            <i class="icon-paper menu-icon"></i>
+                            <i class="icon-layout menu-icon"></i>
                             <span class="menu-title">Pengacara</span>
                         </a>
                     </li>
